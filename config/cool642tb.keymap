@@ -160,10 +160,10 @@
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                          &trans
+&kp ESC              &kp LG(RS(C))     &kp LG(V)          &kp LC(LG(T))     &kp LG(LS(T))                      &kp TAB  &kp LA(PRINTSCREEN)  &kp LC(C)  &kp LC(V)  &trans
+&kp LG(LS(S))        &kp LCTRL         &kp LALT           &kp LSHFT         &trans             &trans  &trans  &trans   &kp RSHFT            &kp RALT   &kp RCTRL  &kp GRAVE
+&kp LA(PRINTSCREEN)  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &kp LS(LG(LEFT))  &kp LC(LS(LG(B)))  &trans  &trans  &trans   &kp LS(LG(RIGHT))    &trans     &kp LGUI   &kp INS
+&trans               &trans            &trans             &trans            &space4            &trans  &trans  &trans                                              &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -171,10 +171,10 @@
 
         layer_6 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                          &trans
+&trans          &trans         &trans         &trans         &trans                          &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4
+&trans          &trans         &trans         &trans         &trans  &trans  &bt BT_CLR_ALL  &trans         &trans         &trans         &trans         &trans
+&trans          &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &trans  &trans  &bt BT_CLR      &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4
+&bt BT_CLR_ALL  &trans         &trans         &trans         &trans  &trans  &trans          &trans                                                      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
