@@ -1,5 +1,4 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -54,6 +53,39 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
+        space4: space4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp SPACE &kp SPACE &kp SPACE>;
+            label = "SPACE4";
+        };
+
+        right4: right4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT &kp RIGHT &kp RIGHT &kp RIGHT>;
+            label = "RIGHT4";
+        };
+
+        left4: left4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT &kp LEFT &kp LEFT &kp LEFT>;
+            label = "LEFT4";
+        };
+
+        dispSW: dispSW {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LSHIFT &kp LWIN &kp B>,
+                <&macro_release>,
+                <&kp LCTRL &kp LSHIFT &kp LWIN &kp B>;
+
+            label = "DISPSW";
+        };
     };
 
     behaviors {
@@ -72,10 +104,10 @@
 
         default_layer {
             bindings = <
-&kp Q       &kp W    &kp E             &kp R         &kp T                                                      &kp Y          &kp U  &kp I      &kp O       &kp P
-&kp A       &kp S    &kp D             &kp F         &kp G         &to 1                 &kp MINUS              &kp H          &kp J  &kp K      &kp L       &kp ENTER
-&kp Z       &kp X    &kp C             &kp V         &kp B         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp N          &kp M  &kp COMMA  &kp PERIOD  &kp SLASH
-&kp ESCAPE  &kp TAB  &kp LEFT_CONTROL  &kp LEFT_GUI  &kp LEFT_ALT  &lt 1 SPACE           &lt 2 SPACE            &kp BACKSPACE                                &kp LEFT_SHIFT
+&kp Q        &kp W        &lt 5 E     &kp R         &kp T                                                     &kp Y            &kp U         &lt 5 I     &kp O            &kp P
+&kp A        &mt LCTRL S  &mt LALT D  &mt LSHIFT F  &kp G        &to 1                 &kp MINUS              &kp H            &mt RSHIFT J  &mt RALT K  &mt RCTRL L      &lt 3 SEMICOLON
+&mt LCTRL Z  &mt LWIN X   &kp C       &kp V         &kp B        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp N            &kp M         &kp COMMA   &mt RWIN PERIOD  &mt RSHIFT SLASH
+&mkp MB3     &trans       &mkp MB2    &mkp MB1      &lt 1 SPACE  &lt 5 TAB             &lt 5 ENTER            &lt 2 BACKSPACE                                             &kp LEFT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -83,10 +115,10 @@
 
         FUNCTION {
             bindings = <
-&kp N1           &kp N2       &kp N3        &kp N4        &kp N5                                             &kp N6          &kp N7        &kp N8                &kp N9                 &kp N0
-&kp EXCLAMATION  &kp AT_SIGN  &kp HASH      &kp DOLLAR    &kp PERCENT   &to 0             &kp INT_MUHENKAN   &kp AMPERSAND   &kp SQT       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ENTER
-&kp PLUS         &kp MINUS    &kp ASTERISK  &kp SLASH     &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp TILDE       &kp QUESTION  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION
-&bt BT_PRV       &bt BT_NXT   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none             &kp MINUS          &bt BT_CLR_ALL                                                             &kp LEFT_SHIFT
+&kp DELETE       &kp F7        &kp F8           &kp F9         &kp F12                     &kp AMPERSAND    &kp ASTERISK        &kp BACKSLASH   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&trans           &mt LCTRL F4  &mt LEFT_ALT F5  &mt LSHIFT F6  &kp F11  &trans  &trans     &kp DOLLAR       &mt RSHIFT PERCENT  &mt RALT CARET  &mt RCTRL MINUS       &mt SINGLE_QUOTE EQUAL
+&kp PRINTSCREEN  &kp F1        &kp F2           &kp F3         &kp F10  &trans  &trans     &kp EXCLAMATION  &kp AT_SIGN         &kp HASH        &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+&trans           &trans        &trans           &trans         &trans   &trans  &kp ENTER  &kp BACKSPACE                                                              &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -94,10 +126,10 @@
 
         NUM {
             bindings = <
-&kp F1       &kp F2   &kp F3             &kp F4         &kp F5                                                  &kp Y          &kp U           &kp I           &kp O            &kp P
-&kp AT_SIGN  &kp SQT  &kp DOUBLE_QUOTES  &kp SEMICOLON  &kp COLON     &kp N1          &kp INT_KATAKANAHIRAGANA  &kp LEFT       &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT        &kp ENTER
-&kp Z        &kp X    &kp C              &kp V          &kp B         &kp LEFT_BRACE  &kp RIGHT_BRACE           &kp LC(SPACE)  &kp RG(SPACE)   &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp SLASH
-&kp RSHIFT   &kp TAB  &kp LCTRL          &kp RGUI       &kp LEFT_ALT  &kp UNDERSCORE  &none                     &lt 2 SPACE                                                     &kp LEFT_SHIFT
+&kp COLON   &kp N7              &kp N8           &kp N9               &kp MINUS                                   &left4    &trans          &trans        &right4    &kp BACKSPACE
+&kp N0      &mt LCTRL NUMBER_4  &mt LEFT_ALT N5  &mt LSHIFT NUMBER_6  &kp SLASH  &trans          &trans           &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans
+&kp PERIOD  &kp NUMBER_1        &kp NUMBER_2     &kp NUMBER_3         &kp COMMA  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp HOME  &kp PAGE_DOWN   &kp PAGE_UP   &kp END    &trans
+&trans      &trans              &trans           &trans               &kp SPACE  &kp TAB         &trans           &trans                                             &trans
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
