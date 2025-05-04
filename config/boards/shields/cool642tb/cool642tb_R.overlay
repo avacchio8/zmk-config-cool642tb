@@ -61,17 +61,3 @@
         scroll-layers = <5>;
     };
 };
-
-/ {
-    aliases {
-        led_red = &led0;
-    };
-
-    led0: led_0 {
-        gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
-        label = "LED_RED";
-    };
-};
-
-
-
