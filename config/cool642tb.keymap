@@ -129,22 +129,12 @@
             tap-ms = <20>;
         };
 
-        // エンコーダー：マウススクロール(MOVE_Y 専用)
-        scroll_move_y: sensor_rotate_msc_for_move_y {
+        scroll_left_right: behavior_sensor_rotate_mouse_wheel_left_right {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_Y(20)>, <&msc MOVE_Y(-20)>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
-            tap-ms = <65>;
-        };
-
-        // エンコーダー：マウススクロール(MOVE_X 専用)
-        scroll_move_x: sensor_rotate_msc_for_move_x {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_X(20)>, <&msc MOVE_X(-20)>;
-
-            tap-ms = <65>;
+            tap-ms = <20>;
         };
     };
 
@@ -181,7 +171,7 @@
 &trans      &trans              &trans           &trans               &trans     &trans          &trans           &trans                                             &trans
             >;
 
-            sensor-bindings = <&scroll_move_x>;
+            sensor-bindings = <&scroll_left_right>;
         };
 
         ARROW {
